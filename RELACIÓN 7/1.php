@@ -109,11 +109,11 @@
             
        <label for="check">
         Cosas a mejorar: <br>
-            <input type="checkbox"  name="mejorar[]" value="atencion" <?php if(isset($check_bien) && $check_bien == 'atencion') echo 'checked' ?>> Atención al cliente <br>
-            <input type="checkbox"  name="mejorar[]" value="tiempo" <?php if(isset($check_bien) && $check_bien == 'tiempo') echo 'checked' ?>> Tiempo de espera <br>
-            <input type="checkbox"  name="mejorar[]" value="calidad" <?php if(isset($check_bien) && $check_bien == 'calidad') echo 'checked' ?>> Calidad del producto <br>
-            <input type="checkbox"  name="mejorar[]" value="precio" <?php if(isset($check_bien) && $check_bien == 'precio') echo 'checked' ?>> Precio <br>
-            <input type="checkbox"  name="mejorar[]" value="exp" <?php if(isset($check_bien) && $check_bien == 'exp') echo 'checked' ?>> Experiencia en la web <br><br>
+            <input type="checkbox"  name="mejorar[]" value="atencion" > Atención al cliente <br>
+            <input type="checkbox"  name="mejorar[]" value="tiempo" > Tiempo de espera <br>
+            <input type="checkbox"  name="mejorar[]" value="calidad" > Calidad del producto <br>
+            <input type="checkbox"  name="mejorar[]" value="precio" > Precio <br>
+            <input type="checkbox"  name="mejorar[]" value="exp" > Experiencia en la web <br><br>
        </label>
        <?php  echo $errores['mejorar'] ?? ''?><br><br>
 
