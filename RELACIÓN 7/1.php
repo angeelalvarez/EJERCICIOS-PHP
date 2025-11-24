@@ -36,21 +36,27 @@
 
         if(($eleccion == 'tel' || $eleccion == 'what') && empty($tel)){
             $errores['tel'] = "El teléfono no puede estar vacío si hemos seleccionado teléfono o whatsapp";
-        }elseif(!preg_match('/^[0-9]{8}$/', $tel)){
+        }elseif(!empty($tel) && !preg_match('/^[6-9][0-9]{8}$/', $tel)){
             $errores['tel'] = "El teléfono debe contener 9 dígitos y ser un número";
         }else{
             $tel_bien = $tel;
         }
 
-
+        $arraysa = ['muy_satisfecho','satisfecho','neutral','insatisfecho','muy_insatisfecho'];
         if(empty($satis)){
             $errores['satis'] = "Debes seleccionar uno";
+        }elseif(!in_array($satis,$arraysa)){
+            $errores['satis'] = "Opción no válida";
         }else{
             $satis_bien = $satis;
         }
 
+
+        $arraymej = ['atencion','tiempo','calidad','precio','exp'];
         if(count($check) > 3){
             $errores['mejorar'] = "Solo puedes seleccionar hasta 3 opciones";
+        }elseif(!empty(array_diff($check,$arraymej))){  //COMPARA LOS ARRAYS Y TE DA EL VALOR DIFERENTE
+            $errores['mejorar'] = "Opción no válida";
         }else{
             $check_bien = $check;
         }
@@ -59,10 +65,14 @@
 
 
         if(empty($errores)){
-            echo "Nombre: $nombre <br>";
-            echo "Método de contacto: $eleccion <br>";
-            echo "Correo: $correo <br>";
-            echo "Teléfono: $tel <br>";
+            echo "Nombre: " .htmlspecialchars($nombre_bien). "<br>";
+            echo "Método de contacto: " .htmlspecialchars($eleccion_bien). "<br>";
+            echo "Correo: " .htmlspecialchars($correo_bien). "<br>";
+            echo "Teléfono: " .htmlspecialchars($tel_bien). "<br>";
+            echo "Nivel de satisfaciión: " .htmlspecialchars($satis_bien). "<br>";
+            foreach($check_bien as $m){
+                echo "$m <br>";
+            }
         }
 
     }
@@ -109,11 +119,11 @@
             
        <label for="check">
         Cosas a mejorar: <br>
-            <input type="checkbox"  name="mejorar[]" value="atencion" > Atención al cliente <br>
-            <input type="checkbox"  name="mejorar[]" value="tiempo" > Tiempo de espera <br>
-            <input type="checkbox"  name="mejorar[]" value="calidad" > Calidad del producto <br>
-            <input type="checkbox"  name="mejorar[]" value="precio" > Precio <br>
-            <input type="checkbox"  name="mejorar[]" value="exp" > Experiencia en la web <br><br>
+            <input type="checkbox"  name="mejorar[]" value="atencion" <?php if(isset($check_bien) && in_array('atencion',$check_bien)) echo 'checked'?>> Atención al cliente <br>
+            <input type="checkbox"  name="mejorar[]" value="tiempo" <?php if(isset($check_bien) && in_array('tiempo',$check_bien)) echo 'checked'?>> Tiempo de espera <br>
+            <input type="checkbox"  name="mejorar[]" value="calidad" <?php if(isset($check_bien) && in_array('calidad',$check_bien)) echo 'checked'?>> Calidad del producto <br>
+            <input type="checkbox"  name="mejorar[]" value="precio" <?php if(isset($check_bien) && in_array('precio',$check_bien)) echo 'checked'?>> Precio <br>
+            <input type="checkbox"  name="mejorar[]" value="exp" <?php if(isset($check_bien) && in_array('exp',$check_bien)) echo 'checked'?>> Experiencia en la web <br><br>
        </label>
        <?php  echo $errores['mejorar'] ?? ''?><br><br>
 

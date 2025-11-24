@@ -57,7 +57,7 @@
 
     
            if(in_array('ci',$ti)){
-           if($eleccion != 'madrid' && $eleccion != 'barca'){
+           if($eleccion == 'sev' || $eleccion == 'valencia'){
              $errores['ciudad'] = "Si seleccionmos Ciberseguridad la ciudad debe ser Madrid o Barcelona";
            }
         }
