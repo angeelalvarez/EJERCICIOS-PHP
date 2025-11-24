@@ -6,7 +6,7 @@
     $gadgets_disp = ['Batarang', 'Ganzúa Láser', 'Bomba de Humo', 'Gel Explosivo', 'Capa Deslizante'];
 
     $_SESSION['gadgets'] = $_SESSION['gadgets'] ?? [];
-    if(isset($_POST['Equipar'])){
+    if(isset($_POST['Equipar']) && !empty($_POST['gadgets_adds'])){
         foreach($_POST['gadgets_adds'] as $g){
             $_SESSION['gadgets'][$g] = ($_SESSION['gadgets'][$g] ?? 0) + 1;
         }

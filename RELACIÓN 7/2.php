@@ -92,11 +92,11 @@
         <?php echo $errores['tp'] ?? '' ?> <br><br>
         <label for="ti">
             Temas de interés: <br>
-            <input type="checkbox" name="ti[]" value="pro" <?php //if(isset($ti_bien) && in_array('pro',$ti_bien)) echo 'checked'   (CON ESTO HACEMOS QUE LOS CHECKBOX SE MANTENGAN SI NOS LO PIDEN)?>> Programación <br>
-            <input type="checkbox" name="ti[]" value="ci" <?php //if(isset($ti_bien) && in_array('ci',$ti_bien)) echo 'checked'?>> Ciberseguridad <br>
-            <input type="checkbox" name="ti[]" value="ia" <?php //if(isset($ti_bien) && in_array('ia',$ti_bien)) echo 'checked'?>> Inteligencia artificial <br>
-            <input type="checkbox" name="ti[]" value="red" <?php //if(isset($ti_bien) && in_array('red',$ti_bien)) echo 'checked'?>> Redes <br>
-            <input type="checkbox" name="ti[]" value="dw" <?php //if(isset($ti_bien) && in_array('dw',$ti_bien)) echo 'checked'?>> Desarrollo web <br>
+            <input type="checkbox" name="ti[]" value="pro" <?php if(isset($ti_bien) && in_array('pro',$ti_bien)) echo 'checked'?>> Programación <br>
+            <input type="checkbox" name="ti[]" value="ci" <?php if(isset($ti_bien) && in_array('ci',$ti_bien)) echo 'checked'?>> Ciberseguridad <br>
+            <input type="checkbox" name="ti[]" value="ia" <?php if(isset($ti_bien) && in_array('ia',$ti_bien)) echo 'checked'?>> Inteligencia artificial <br>
+            <input type="checkbox" name="ti[]" value="red" <?php if(isset($ti_bien) && in_array('red',$ti_bien)) echo 'checked'?>> Redes <br>
+            <input type="checkbox" name="ti[]" value="dw" <?php if(isset($ti_bien) && in_array('dw',$ti_bien)) echo 'checked'?>> Desarrollo web <br>
         </label>
         <?php echo $errores['ti'] ?? '' ?> <br><br>
 
