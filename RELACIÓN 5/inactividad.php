@@ -7,7 +7,9 @@
             header("Location:salir.php");
             exit;
         }else{
-            $_SESSION['ultimo_movimiento'] = time();
+            $minutos = floor($tiempo_transcurrido / 60);
+            $segundos = $tiempo_transcurrido % 60;
         }
     }
+    echo "Tiempo transcurrido: $minutos:$segundos";
 ?>

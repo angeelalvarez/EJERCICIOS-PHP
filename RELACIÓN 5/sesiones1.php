@@ -1,6 +1,5 @@
 <?php
     require_once 'config_sesion.php';
-
     require_once 'no_logueado.php';
     require_once 'inactividad.php';
     if(isset($_SESSION['num_pistas'])){
@@ -26,7 +25,7 @@
     if($_SESSION['num_pistas'] == 1){
         echo "<p>Bienvenido, detective has encontrado tu primera pista</p>";
     }else{
-        echo "<p>Sigues investigando, has encontrad {$_SESSION['num_pistas']} pistas</p>";
+        echo "<p>Sigues investigando, has encontrado {$_SESSION['num_pistas']} pistas</p>";
     }
     ?>
     

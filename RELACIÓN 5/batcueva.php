@@ -2,10 +2,6 @@
     require_once 'config_sesion.php';
     require_once 'no_logueado.php';
     require_once 'inactividad.php';
-    if(!isset($_SESSION['user'])){
-        header("Location: sesiones2.php");
-        exit;
-    }
 ?>
 
 

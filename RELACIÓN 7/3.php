@@ -125,8 +125,8 @@
 
         <?php     
         $costesext = 0;
-        if(empty($errores)){
-            $coste = $precio_entrada[$te] * $can;
+        if($_SERVER["REQUEST_METHOD"] == "POST" && empty($errores)){
+            $coste = ($precio_entrada[$te] * $can);
             foreach($ext as $e){
                  $costesext += $precio_extras[$e];
             }
