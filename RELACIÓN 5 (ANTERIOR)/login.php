@@ -24,7 +24,7 @@
         if(empty($errores)){
             $_SESSION['user'] = $nombre;
             $_SESSION['inicio_sesion'] = time();
-            header("Location:contador.php");
+            header("Location:bienvenida.php");
         }
     }
 ?>

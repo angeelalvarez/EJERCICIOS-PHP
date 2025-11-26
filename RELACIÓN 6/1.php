@@ -1,5 +1,5 @@
 <?php
-
+    require_once "1.1.php";
     $errores = [];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $dist = $_POST['dist'];
@@ -21,11 +21,10 @@
         }
 
         if(empty($errores)){
-            $totalkm = 1.5 * $dist;
-            $totalti = 0.5 * $ti;
-            $total = $totalkm + $totalti + 3;
+          $calculo = taxi($dist,$ti);
+          
         }
-
+       
        
         
     }
@@ -47,7 +46,7 @@
         <input type="text" name="tiem" id="tiem" placeholder="Tiempo" ><br>
         <?php echo $errores['tiem'] ?? '' ?><br>
         <input type="submit" value="Enviar"><br><br>
-        <?php echo $total ?? ''?>
+        <?php echo $calculo ?? ''?>
         
     </form>
 </body>
